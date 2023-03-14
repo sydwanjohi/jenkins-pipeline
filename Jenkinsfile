@@ -15,8 +15,7 @@ pipeline {
         EMAIL_SUBJECT_SUCCESS = "Status: 'SUCCESS' -Job \'${env.JOB_NAME}:${env.BUILD_NUMBER}\'"
         EMAIL_SUBJECT_FAILURE = "Status: 'FAILURE' -Job \'${env.JOB_NAME}:${env.BUILD_NUMBER}\'"
         EMAIL_RECEPIENT = 'naniyule@gmail.com'
-        LIVE_SITE = 'https://secret-shore-37984.herokuapp.com/'
-    }
+        LIVE_SITE = 'https://galllery.onrender.com
 
 
     tools {
