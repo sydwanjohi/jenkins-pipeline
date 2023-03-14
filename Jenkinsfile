@@ -14,7 +14,7 @@ pipeline {
 
         EMAIL_SUBJECT_SUCCESS = "Status: 'SUCCESS' -Job \'${env.JOB_NAME}:${env.BUILD_NUMBER}\'"
         EMAIL_SUBJECT_FAILURE = "Status: 'FAILURE' -Job \'${env.JOB_NAME}:${env.BUILD_NUMBER}\'"
-        EMAIL_RECEPIENT = 'bmarete10@gmail.com'
+        EMAIL_RECEPIENT = 'naniyule@gmail.com'
         LIVE_SITE = 'https://secret-shore-37984.herokuapp.com/'
     }
 
@@ -26,7 +26,7 @@ pipeline {
     stages {
         stage ('Clone repository') {
             steps {
-                git 'https://github.com/brianmarete/gallery.git'
+                git 'https://github.com/Naniyule/jenkins-pipeline.git'
             }
         }
 
@@ -36,17 +36,17 @@ pipeline {
             }
         }
 
-        stage ('Run tests') {
-            steps {
-                sh 'npm test'
-            }
-        }
+        // stage ('Run tests') {
+        //     steps {
+        //         sh 'npm test'
+        //     }
+        // }
 
-        stage('Deploy to Render') {
-          steps {
-              withCredentials([usernameColonPassword(credentialsId: 'Heroku', variable: 'HEROKU_CREDENTIALS' )]){
-                    sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/secret-shore-37984.git master'
-              }
-          }
-        }
+        // stage('Deploy to Render') {
+        //   steps {
+        //       withCredentials([usernameColonPassword(credentialsId: 'Heroku', variable: 'HEROKU_CREDENTIALS' )]){
+        //             sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/secret-shore-37984.git master'
+        //       }
+        //   }
+        // }
     }
