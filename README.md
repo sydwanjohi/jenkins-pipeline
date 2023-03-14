@@ -22,7 +22,7 @@ This is a web application that displays photos in a gallery format.
 
 ### Installing
 
-- Clone project from this repository - https://github.com/naniyule/Birthday_calculator
+- Clone project from this repository - https://github.com/Naniyule/jenkins-pipeline
 - Make any adjustments as seen fit on the html or css files.
 
 ### Executing program
@@ -34,7 +34,6 @@ This is a web application that displays photos in a gallery format.
 
 Sydney Waithaka Wanjohi
 
-Email - naniyule@gmail.com
 
 ## Version History
 
