@@ -19,13 +19,13 @@ pipeline {
 
 
     tools {
-        nodejs 'Node-14'
+        nodejs 'Node-19.8.0'
     }
 
     stages {
         stage ('Clone repository') {
             steps {
-                git 'https://github.com/Naniyule/jenkins-pipeline.git'
+                git url: 'https://github.com/Naniyule/jenkins-pipeline.git', branch: 'main'
             }
         }
 
