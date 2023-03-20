@@ -35,17 +35,28 @@ pipeline {
             }
         }
 
-        // stage ('Run tests') {
-        //     steps {
-        //         sh 'npm test'
-        //     }
-        // }
+         stage ('Run tests') {
+             steps {
+                 sh 'npm test'
+             }
+         }
 
-        // stage('Deploy to Render') {
-        //   steps {
-        //       withCredentials([usernameColonPassword(credentialsId: 'Heroku', variable: 'HEROKU_CREDENTIALS' )]){
-        //             sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/secret-shore-37984.git master'
-        //       }
-        //   }
-        // }
+         stage('Deploy to Render') {
+           steps {
+               withCredentials([usernameColonPassword(credentialsId: 'Heroku', variable: 'HEROKU_CREDENTIALS' )]){
+                     sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/secret-shore-37984.git master'
+               }
+           }
+         }
     }
+
+      post {
+    success {
+      slackSend color: "good", message: "Build ${env.BUILD_NUMBER} of ${env.JOB_NAME} Succeeded. Deployed at ${LIVE_SITE}"
+    }
+    failure {
+      slackSend color: "danger", message: "Build ${env.BUILD_NUMBER} of ${env.JOB_NAME} failed. See ${env.BUILD_URL} for details."
+    }
+  }
+
+}
