@@ -50,6 +50,13 @@ pipeline {
          }
     }
 
+            stage('End') {
+            steps {
+                echo 'Deployment completed'
+            }
+        }
+    }
+
       post {
     success {
       slackSend color: "good", message: "Build ${env.BUILD_NUMBER} of ${env.JOB_NAME} Succeeded. Deployed at ${LIVE_SITE}"
