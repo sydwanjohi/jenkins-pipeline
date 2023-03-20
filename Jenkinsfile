@@ -43,8 +43,8 @@ pipeline {
 
          stage('Deploy to Render') {
            steps {
-               withCredentials([usernameColonPassword(credentialsId: 'Heroku', variable: 'HEROKU_CREDENTIALS' )]){
-                     sh 'git push https://${HEROKU_CREDENTIALS}@git.heroku.com/secret-shore-37984.git master'
+               withCredentials([usernameColonPassword(credentialsId: 'Render', variable: 'HEROKU_CREDENTIALS' )]){
+                     sh 'git push https://${RENDER_CREDENTIALS}@git.Render.com/secret-shore-37984.git master'
                }
            }
          }
